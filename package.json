@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index",
-    "webpack": "webpack --config webpack.config.ts"
+    "webpack": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,8 @@
     "@types/morgan": "^1.9.3",
     "@types/multer": "^1.4.7",
     "@types/node": "^18.11.10",
+    "@types/webpack-env": "^1.18.0",
+    "@types/webpack-node-externals": "^2.5.3",
     "eslint": "^8.29.0",
     "morgan": "^1.10.0",
     "ts-loader": "^9.4.2",
