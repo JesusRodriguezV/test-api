@@ -7,7 +7,7 @@ import { Contact } from "../models/contact"
 const getContact = async (req: Request, res: Response, next: NextFunction) => {
   const schema = Joi.object<Contact>({
     name: Joi.string().required(),
-    last_name: Joi.string().required(),
+    lastName: Joi.string().required(),
     address: Joi.string().required(),
     phoneNumber: Joi.number().required(),
     email: Joi.string().required(),
@@ -24,7 +24,7 @@ const updateContact = async (
 ) => {
   const schema = Joi.object<Contact>({
     name: Joi.string(),
-    last_name: Joi.string(),
+    lastName: Joi.string(),
     address: Joi.string(),
     phoneNumber: Joi.number(),
     email: Joi.string(),

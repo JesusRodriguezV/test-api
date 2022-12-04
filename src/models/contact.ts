@@ -3,7 +3,7 @@ import { Schema, model, Model, Document } from "mongoose"
 export interface Contact extends Document {
   active: boolean
   name: string
-  last_name: string
+  lastName: string
   address: string
   email: string
   phoneNumber: number
@@ -22,7 +22,7 @@ const ContactSchema = new Schema<Contact>(
       required: true,
       trim: true,
     },
-    last_name: {
+    lastName: {
       type: String,
       required: true,
       trim: true,
