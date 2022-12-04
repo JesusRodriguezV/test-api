@@ -1,13 +1,11 @@
 import rateLimit from "express-rate-limit"
 import logger from "morgan"
 import compress from "compression"
-import crypto from "crypto"
 import helmet from "helmet"
 import { json, urlencoded, NextFunction, Request, Response } from "express"
 import { config } from "dotenv"
 import methodOverride from "method-override"
 import cors from "cors"
-import { expressjwt } from "express-jwt"
 import httpStatus from "http-status"
 import CustomError from "../plugins/customError"
 
