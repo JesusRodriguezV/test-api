@@ -1,15 +1,15 @@
 import { NextFunction, Request, Response } from "express"
 import { BAD_REQUEST, NOT_FOUND, OK } from "http-status"
 import CustomError from "../plugins/customError"
-import { isValidObjectId, Model } from "mongoose"
+import { isValidObjectId, Model, ProjectionType } from "mongoose"
 import customResponse from "../plugins/customResponse"
 
-const Controller = <T>(Model: Model<T>) => {
+const Controller = <T>(Model: Model<T>, fields?: ProjectionType<T>) => {
   const getAll = (req: Request, res: Response, next: NextFunction) => {
     Model.find({ active: true })
       .countDocuments()
       .then(count => {
-        Model.find({ active: true })
+        Model.find({ active: true }, fields)
           .limit(Number(req.query?.limit) || 0)
           .skip(Number(req.query?.skip) || 0)
           .then(value => {
@@ -46,7 +46,7 @@ const Controller = <T>(Model: Model<T>) => {
         )
       )
     }
-    Model.findOne({ _id: req.params.id })
+    Model.findOne({ _id: req.params.id }, fields)
       .then(value => {
         if (!value)
           return next(
@@ -69,7 +69,7 @@ const Controller = <T>(Model: Model<T>) => {
         )
       )
     }
-    Model.findOne({ _id: req.params.id })
+    Model.findOne({ _id: req.params.id }, fields)
       .then(value => {
         if (!value)
           return next(

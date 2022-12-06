@@ -5,7 +5,11 @@ import Validator from "../validators/contact"
 
 const contacts = Router()
 
-const { getAll, byId, create, update, remove } = Controller(ContactModel)
+const { getAll, byId, create, update, remove } = Controller(ContactModel, {
+  active: 0,
+  createdAt: 0,
+  updatedAt: 0,
+})
 const { getContact, updateContact } = Validator
 
 contacts.route("/").get(getAll)
