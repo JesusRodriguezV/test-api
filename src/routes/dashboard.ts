@@ -3,85 +3,72 @@ import { BAD_REQUEST, OK } from "http-status"
 
 const dashboard = Router()
 
-dashboard.route("").get((req: Request, res: Response, next: NextFunction) => {
-  if (
-    !req?.query?.idUser ||
-    !req?.query?.company ||
-    !req?.query?.year ||
-    !req?.query?.week
-  ) {
-    res.status(BAD_REQUEST).json({
-      code: BAD_REQUEST,
-      statusCode: "STC-DASH-400",
-      typePayload: "API-DASH-400",
-      payload: {},
-    })
-  }
+dashboard.route("").post((req: Request, res: Response, next: NextFunction) => {
+  // if (
+  //   !req?.query?.idUser ||
+  //   !req?.query?.company ||
+  //   !req?.query?.year ||
+  //   !req?.query?.week
+  // ) {
+  //   res.status(BAD_REQUEST).json({
+  //     code: BAD_REQUEST,
+  //     statusCode: "STC-DASH-400",
+  //     typePayload: "API-DASH-400",
+  //     payload: {},
+  //   })
+  // }
   res.status(OK).json({
-    code: OK,
-    statusCode: "STC-DASH-000",
-    typePayload: "API-DASH-000",
+    code: 200, // usar codigos de error HTTP
+    statusCode: "STC-SAPN-001",
+    typePayload: "API-SAPN-001",
     payload: {
-      result: {
-        userBalance: {
-          profit: 1234.56,
-          accessoriesProfit: 234.0,
-          devicesProfit: 1000.56,
+      results: [
+        {
+          Werks: "1015",
+          Puesto: "Gerente",
+          Vkgrp: "225",
+          Bezei: "ESTEFI GUADALUPE MAR",
+          Fecha: "",
+          VtaAccesorios: "0.000",
+          VtaEquipos: "0.000",
+          TotalVenta: "434610.380",
+          TotalAccesorios: "2038.770",
+          PorcMetaAcce: "13.610",
+          TotalEquipos: "432571.610",
+          PorcMetaEquipos: "102.670",
+          FactorAccesorio: "0.490",
+          FactorEquipo: "1.220",
+          PagoAccesorios: "9.990",
+          PagoEquipo: "5277.370",
+          TotalPagar: "5287.360",
+          Bukrs: "1000",
+          Centro: "1015",
+          Gjahr: "2022",
+          Name1: "MACROPAY MID EULOGIO",
+          Ort01: "MERIDA",
+          Pstlz: "97000",
+          Semana: 40,
+          MetaAccesorio: "14976.880",
+          TotalAccesorio: "2038.770",
+          MetaEquipos: "421330.570",
+          TotalEquiposH: "432571.610",
+          MetaGlobal: "436307.450",
+          TotalSuc: "434610.380",
+          PorcMeta: "100.000",
+          PorcMin: "85.000",
+          PorcBase: "0.000",
+          PorcMetaVend: "1.840",
+          PorcMinVend: "1.470",
+          PorcBaseVend: "0.740",
+          PorcMeta1: "100.000",
+          PorcMin1: "85.000",
+          PorcBase1: "0.000",
+          PorcMetaGer: "1.220",
+          PorcMinGer: "0.980",
+          PorcBaseGer: "0.490",
+          Comision: "3132.410",
         },
-        storeBalance: {
-          devicesIncoming: 50111.99,
-          accessoriesIncoming: 6999.01,
-        },
-        ranking: [
-          {
-            seller: "janito perez",
-            accessoriesIncoming: 4002.21,
-            devicesIncoming: 3000.21,
-            total: 9000.02,
-            profit: 3000.01,
-          },
-          {
-            seller: "janito perez",
-            accessoriesIncoming: 4002.21,
-            devicesIncoming: 3000.21,
-            total: 9000.03,
-            profit: 3000.01,
-          },
-          {
-            seller: "perenganito lopez",
-            accessoriesIncoming: 4002.21,
-            devicesIncoming: 3000.21,
-            total: 9000.0,
-            profit: 3000.01,
-          },
-          {
-            seller: "fulano de tal",
-            accessoriesIncoming: 4002.21,
-            devicesIncoming: 3000.21,
-            total: 9000.0,
-            profit: 3000.01,
-          },
-          {
-            seller: "janito perez",
-            accessoriesIncoming: 4002.21,
-            devicesIncoming: 3000.21,
-            total: 9000.0,
-            profit: 3000.01,
-          },
-        ],
-        sellingChart: { globalIncoming: 10000.0, storeIncoming: 4000.01 },
-        histogram: [
-          { month: 1, profit: 1000 },
-          { month: 2, profit: 5000 },
-          { month: 3, profit: 2000 },
-          { month: 4, profit: 8000 },
-        ],
-        selling: {
-          profit: 241200,
-          accessoriesProfit: 46336,
-          devicesProfit: 75567,
-        },
-      },
+      ],
     },
   })
 })
